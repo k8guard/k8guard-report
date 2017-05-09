@@ -1,0 +1,232 @@
+{{template "_head.html"}}
+
+<div class="container-fluid">
+
+    <h1><a href="/last">Recent Actions</a></h1>
+
+
+    <div class="row">
+        <form id="custom-search-form" class="form-search form-horizontal pull-right" action="/recent"
+              method="POST">
+            <div class="input-append span6">
+                <input name="namespace" type="text" class="search-query" placeholder="Search Namespace"
+                       for="inputNamespace" class="control-label">
+                <button type="submit" class="btn"><i class="icon-search"></i></button>
+            </div>
+        </form>
+        <div class="col-sm-3">
+
+            <a href="#" class="nav-tabs-dropdown btn btn-block btn-primary">Tabs</a>
+            <ul id="nav-tabs-wrapper" class="nav nav-tabs nav-pills nav-stacked well">
+                <li class="active"><a href="#vtab1" data-toggle="tab">Deployments</a></li>
+                <li><a href="#vtab2" data-toggle="tab">Ingresses</a></li>
+                <li><a href="#vtab3" data-toggle="tab">Pods</a></li>
+                <li><a href="#vtab4" data-toggle="tab">Jobs</a></li>
+                <li><a href="#vtab5" data-toggle="tab">Cron Jobs</a></li>
+
+            </ul>
+        </div>
+        <div class="col-sm-9">
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane fade in active" id="vtab1">
+                    <h3>Action on deployments for {{.Namespace}} namespace</h3>
+                    <div class="span5">
+                        <table class="table table-striped table-condensed">
+                            <thead>
+                            <tr>
+                                <th>Cluster</th>
+                                <th>Source</th>
+                                <th>Violation Source</th>
+                                <th>Violation Type</th>
+                                <th>Action Type</th>
+                                <th>Action Time</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{range index .Results "ActionDeployment"}}
+                            <tr>
+                                <td>{{.Cluster}}</td>
+                                <td>{{.Source}}</td>
+                                <td>{{.ViolationSource}}</td>
+                                <td>{{.ViolationType}}</td>
+                                <td>
+                                    <span class="label label-info">{{.Action}}</span>
+                                </td>
+                                <td>{{.Created_at.Format "Jan 02, 2006 15:04:05 CST"}}</td>
+                                </td>
+                            </tr>
+                            {{end}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade in" id="vtab2">
+                    <h3>Action on Ingress for {{.Namespace}} namespace</h3>
+                    <div class="span5">
+                        <table class="table table-striped table-condensed">
+                            <thead>
+                            <tr>
+                                <th>Cluster</th>
+                                <th>Source</th>
+                                <th>Violation Source</th>
+                                <th>Violation Type</th>
+                                <th>Action Type</th>
+                                <th>Action Time</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{range index .Results "ActionIngress"}}
+                            <tr>
+                                <td>{{.Cluster}}</td>
+                                <td>{{.Source}}</td>
+                                <td>{{.ViolationSource}}</td>
+                                <td>{{.ViolationType}}</td>
+                                <td>
+                                    <span class="label label-info">{{.Action}}</span>
+                                </td>
+                                <td>{{.Created_at.Format "Jan 02, 2006 15:04:05 CST"}}</td>
+                                </td>
+                            </tr>
+                            {{end}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade in" id="vtab3">
+                    <h3>Action on orphan pods {{.Namespace}} namespace</h3>
+                    <div class="span5">
+                        <table class="table table-striped table-condensed">
+                            <thead>
+                            <tr>
+                                <th>Cluster</th>
+                                <th>Source</th>
+                                <th>Violation Source</th>
+                                <th>Violation Type</th>
+                                <th>Action Type</th>
+                                <th>Action Time</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{range index .Results "ActionPod"}}
+                            <tr>
+                                <td>{{.Cluster}}</td>
+                                <td>{{.Source}}</td>
+                                <td>{{.ViolationSource}}</td>
+                                <td>{{.ViolationType}}</td>
+                                <td>
+                                    <span class="label label-info">{{.Action}}</span>
+                                </td>
+                                <td>{{.Created_at.Format "Jan 02, 2006 15:04:05 CST"}}</td>
+                                </td>
+                            </tr>
+                            {{end}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade in" id="vtab4">
+                    <h3>Action on jobs for {{.Namespace}} namespace</h3>
+                    <div class="span5">
+                        <table class="table table-striped table-condensed">
+                            <thead>
+                            <tr>
+                                <th>Cluster</th>
+                                <th>Source</th>
+                                <th>Violation Source</th>
+                                <th>Violation Type</th>
+                                <th>Action Type</th>
+                                <th>Action Time</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{range index .Results "ActionJob"}}
+                            <tr>
+                                <td>{{.Cluster}}</td>
+                                <td>{{.Source}}</td>
+                                <td>{{.ViolationSource}}</td>
+                                <td>{{.ViolationType}}</td>
+                                <td>
+                                    <span class="label label-info">{{.Action}}</span>
+                                </td>
+                                <td>{{.Created_at.Format "Jan 02, 2006 15:04:05 CST"}}</td>
+                                </td>
+                            </tr>
+                            {{end}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade in" id="vtab5">
+                    <h3>Action on CronJob for {{.Namespace}} namespace</h3>
+                    <div class="span5">
+                        <table class="table table-striped table-condensed">
+                            <thead>
+                            <tr>
+                                <th>Cluster</th>
+                                <th>Source</th>
+                                <th>Violation Source</th>
+                                <th>Violation Type</th>
+                                <th>Action Type</th>
+                                <th>Action Time</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{range index .Results "ActionCronJob"}}
+                            <tr>
+                                <td>{{.Cluster}}</td>
+                                <td>{{.Source}}</td>
+                                <td>{{.ViolationSource}}</td>
+                                <td>{{.ViolationType}}</td>
+                                <td>
+                                    <span class="label label-info">{{.Action}}</span>
+                                </td>
+                                <td>{{.Created_at.Format "Jan 02, 2006 15:04:05 CST"}}</td>
+                                </td>
+                            </tr>
+                            {{end}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $('.nav-tabs-dropdown').each(function (i, elm) {
+
+        $(elm).text($(elm).next('ul').find('li.active a').text());
+
+    });
+
+    $('.nav-tabs-dropdown').on('click', function (e) {
+
+        e.preventDefault();
+
+        $(e.target).toggleClass('open').next('ul').slideToggle();
+
+    });
+
+    $('#nav-tabs-wrapper a[data-toggle="tab"]').on('click', function (e) {
+
+        e.preventDefault();
+
+        $(e.target).closest('ul').hide().prev('a').removeClass('open').text($(this).text());
+
+    });
+</script>
+</body>
+</html>
