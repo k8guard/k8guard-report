@@ -1,8 +1,8 @@
 package views
 
 import (
-	"k8guard-report/db"
-	"k8guard-report/templates"
+	"github.com/k8guard/k8guard-report/templates/k8guard-report/db"
+	"github.com/k8guard/k8guard-report/templates/k8guard-report/templates"
 	"net/http"
 
 	libs "github.com/k8guard/k8guardlibs"
