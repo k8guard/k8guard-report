@@ -2,7 +2,7 @@ package db
 
 import (
 	"fmt"
-	"k8guard-report/db/stmts"
+	"github.com/k8guard/k8guard-report/db/stmts"
 	"time"
 
 	libs "github.com/k8guard/k8guardlibs"

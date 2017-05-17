@@ -1,7 +1,7 @@
 package main
 
 import (
-	"k8guard-report/views"
+	"github.com/k8guard/k8guard-report/views"
 	"net/http"
 	"time"
 

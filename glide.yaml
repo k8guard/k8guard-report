@@ -1,4 +1,4 @@
-package: k8guard-report
+package: github.com/k8guard/k8guard-report
 import:
 
 - package: github.com/pressly/chi

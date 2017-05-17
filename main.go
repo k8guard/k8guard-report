@@ -1,8 +1,8 @@
 package main
 
 import (
-	"k8guard-report/db"
-	"k8guard-report/templates"
+	"github.com/k8guard/k8guard-report/db"
+	"github.com/k8guard/k8guard-report/templates"
 
 	libs "github.com/k8guard/k8guardlibs"
 )
