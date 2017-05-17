@@ -1,0 +1,44 @@
+hash: f8cfdd3735a86f9db931f1064af67f283b1085ab645bae1f3f757fe2f60a200a
+updated: 2017-05-17T13:28:11.615476326-05:00
+imports:
+- name: github.com/caarlos0/env
+  version: 9474f19b515f52326c7d197d2d097caa7fc7485e
+  repo: https://github.com/caarlos0/env.git
+  vcs: git
+- name: github.com/gocql/gocql
+  version: 1f874493e9e5aebe46b312593cbd9cb5d3946eda
+  subpackages:
+  - internal/lru
+  - internal/murmur
+  - internal/streams
+- name: github.com/golang/snappy
+  version: 553a641470496b2327abcac10b36396bd98e45c9
+- name: github.com/hailocab/go-hostpool
+  version: e80d13ce29ede4452c43dea11e79b9bc8a15b478
+- name: github.com/k8guard/k8guardlibs
+  version: 57467da42f3eef60eaf98f47b0e06e7f97cba714
+  repo: https://github.com/k8guard/k8guardlibs.git
+  vcs: git
+  subpackages:
+  - config
+  - violations
+- name: github.com/pressly/chi
+  version: b206b0359be0c971fbfab2aa15307482f9c300f4
+  repo: https://github.com/pressly/chi.git
+  vcs: git
+  subpackages:
+  - middleware
+  - render
+- name: github.com/Sirupsen/logrus
+  version: c078b1e43f58d563c74cebe63c85789e76ddb627
+- name: golang.org/x/net
+  version: e90d6d0afc4c315a0d87a568ae68577cc15149a0
+  subpackages:
+  - context
+- name: golang.org/x/sys
+  version: 8f0908ab3b2457e2e15403d3697c9ef5cb4b57a9
+  subpackages:
+  - unix
+- name: gopkg.in/inf.v0
+  version: 3887ee99ecf07df5b447e9b00d9c0b2adaa9f3e4
+testImports: []
