@@ -1,7 +1,7 @@
 package views
 
 import (
-	"k8guard-report/templates"
+	"github.com/k8guard/k8guard-report/templates"
 	"net/http"
 	"time"
 )
