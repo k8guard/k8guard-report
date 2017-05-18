@@ -1,5 +1,5 @@
-hash: f8cfdd3735a86f9db931f1064af67f283b1085ab645bae1f3f757fe2f60a200a
-updated: 2017-05-17T13:28:11.615476326-05:00
+hash: 31ed22752db462e3332a661b46e6846125579c3a642c8d40b01a778487c4bb73
+updated: 2017-05-18T16:33:53.244156854-05:00
 imports:
 - name: github.com/caarlos0/env
   version: 9474f19b515f52326c7d197d2d097caa7fc7485e
@@ -16,7 +16,7 @@ imports:
 - name: github.com/hailocab/go-hostpool
   version: e80d13ce29ede4452c43dea11e79b9bc8a15b478
 - name: github.com/k8guard/k8guardlibs
-  version: 57467da42f3eef60eaf98f47b0e06e7f97cba714
+  version: 0558b3eafb02f616ee743b4ecfd93451ba2d33e1
   repo: https://github.com/k8guard/k8guardlibs.git
   vcs: git
   subpackages:
@@ -29,7 +29,7 @@ imports:
   subpackages:
   - middleware
   - render
-- name: github.com/Sirupsen/logrus
+- name: github.com/sirupsen/logrus
   version: c078b1e43f58d563c74cebe63c85789e76ddb627
 - name: golang.org/x/net
   version: e90d6d0afc4c315a0d87a568ae68577cc15149a0
