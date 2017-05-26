@@ -1,5 +1,5 @@
-hash: 31ed22752db462e3332a661b46e6846125579c3a642c8d40b01a778487c4bb73
-updated: 2017-05-22T11:10:47.01810144-05:00
+hash: bda4296de1c6bef36367de0c05551844b0c7defffe14dc8455c547dd09adcb78
+updated: 2017-05-25T19:54:59.84751549-05:00
 imports:
 - name: github.com/caarlos0/env
   version: 9474f19b515f52326c7d197d2d097caa7fc7485e
@@ -16,7 +16,7 @@ imports:
 - name: github.com/hailocab/go-hostpool
   version: e80d13ce29ede4452c43dea11e79b9bc8a15b478
 - name: github.com/k8guard/k8guardlibs
-  version: 0558b3eafb02f616ee743b4ecfd93451ba2d33e1
+  version: 81b61988c4cbd72e405af7ab8a86300fb73a59a6
   repo: https://github.com/k8guard/k8guardlibs.git
   vcs: git
   subpackages:
