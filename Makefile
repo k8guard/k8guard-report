@@ -3,7 +3,7 @@ BINARY=k8guard-report
 VERSION=`git fetch;git describe --tags > /dev/null 2>&1`
 BUILD=`date +%FT%T%z`
 
-LDFLAGS=-ldflags "-X main.Version=${VERSION} -X main.Build=${BUILD}"
+LDFLAGS=-ldflags "-X views.Version=${VERSION} -X views.Build=${BUILD}"
 
 
 deps:

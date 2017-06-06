@@ -8,7 +8,7 @@ import (
 
 var templates *template.Template
 var IndexTemplate *template.Template
-var LastTemplate *template.Template
+var AllTemplate *template.Template
 var RecentTemplate *template.Template
 
 func PopulateTemplates() {
@@ -30,6 +30,6 @@ func PopulateTemplates() {
 		panic(err)
 	}
 	IndexTemplate = templates.Lookup("index.html")
-	LastTemplate = templates.Lookup("last.html")
+	AllTemplate = templates.Lookup("all.html")
 	RecentTemplate = templates.Lookup("recent.html")
 }
