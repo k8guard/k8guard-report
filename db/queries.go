@@ -2,8 +2,9 @@ package db
 
 import (
 	"fmt"
-	"github.com/k8guard/k8guard-report/db/stmts"
 	"time"
+
+	"github.com/k8guard/k8guard-report/db/stmts"
 
 	libs "github.com/k8guard/k8guardlibs"
 )
@@ -41,12 +42,28 @@ func (m VActionResponseModel) GetAllByNameSpace(namespace string) Context {
 		}
 	}
 
-	libs.Log.Info("The Results for", namespace, "are ", result)
+	libs.Log.Debug("The Results for", namespace, "are ", result)
 	return Context{Namespace: namespace, Results: result}
 }
 
+func (m VActionResponseModel) GetLastActions(numberOfRecent int) Context {
+	libs.Log.Debug("Trying to get last action ", numberOfRecent)
+	result := make(map[string][]VActionResponseModel, 0)
+
+	iter := Sess.Query(fmt.Sprintf(stmts.SELECT_ACTIONS, libs.Cfg.CassandraKeyspace), numberOfRecent).Iter()
+
+	for iter.Scan(&m.Namespace, &m.Etype, &m.Created_at, &m.Action, &m.Cluster, &m.Source, &m.ViolationSource, &m.ViolationType) {
+		result["recent"] = append(result["recent"], m)
+	}
+	if err := iter.Close(); err != nil {
+		libs.Log.Fatal("Error closing iter ", err)
+	}
+	libs.Log.Debug("The Results for", result)
+	return Context{Results: result}
+}
+
 func (m VActionResponseModel) GetLastAction() (*VActionResponseModel, error) {
-	if err := Sess.Query(fmt.Sprintf(stmts.SELECT_ACTIONS, libs.Cfg.CassandraKeyspace), 1).Scan(&m.Namespace, &m.Etype, &m.Created_at, &m.Action, &m.Cluster, &m.Source, &m.ViolationSource, &m.ViolationType); err != nil {
+	if err := Sess.Query(fmt.Sprintf(stmts.SELECT_ACTIONS, libs.Cfg.CassandraKeyspace), 10).Scan(&m.Namespace, &m.Etype, &m.Created_at, &m.Action, &m.Cluster, &m.Source, &m.ViolationSource, &m.ViolationType); err != nil {
 		libs.Log.Error(err)
 		return &m, err
 	}

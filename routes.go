@@ -1,9 +1,10 @@
 package main
 
 import (
-	"github.com/k8guard/k8guard-report/views"
 	"net/http"
 	"time"
+
+	"github.com/k8guard/k8guard-report/views"
 
 	"github.com/pressly/chi"
 	"github.com/pressly/chi/middleware"
@@ -29,8 +30,9 @@ func start_http_router() {
 
 	})
 
-	r.Route("/last", func(r chi.Router) {
+	r.Route("/all", func(r chi.Router) {
 		r.Get("/", views.Last)
+		r.Post("/", views.Last)
 
 	})
 

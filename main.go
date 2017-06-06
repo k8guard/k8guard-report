@@ -8,6 +8,7 @@ import (
 )
 
 func main() {
+
 	templates.PopulateTemplates()
 	err := db.Connect(libs.Cfg.CassandraHosts)
 	if err != nil {
