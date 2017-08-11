@@ -69,3 +69,11 @@ func (m VActionResponseModel) GetLastAction() (*VActionResponseModel, error) {
 	}
 	return &m, nil
 }
+
+func (m VActionResponseModel) Ping() error {
+	if err := Sess.Query(stmts.SELECT_CURRENT_TIMEUUID).Exec(); err != nil {
+		libs.Log.Error(err)
+		return err
+	}
+	return nil
+}

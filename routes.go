@@ -42,5 +42,13 @@ func start_http_router() {
 
 	})
 
+	r.Route("/alive", func(r chi.Router) {
+		r.Get("/", views.Alive)
+	})
+
+	r.Route("/ready", func(r chi.Router) {
+		r.Get("/", views.Ready)
+	})
+
 	http.ListenAndServe(":3001", r)
 }
