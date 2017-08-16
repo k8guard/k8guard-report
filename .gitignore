@@ -1,3 +1,4 @@
 vendor/
 .idea
 k8guard-report
+/.project

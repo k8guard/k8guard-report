@@ -28,7 +28,7 @@ type Context struct {
 func (m VActionResponseModel) GetAllByNameSpace(namespace string) Context {
 	result := make(map[string][]VActionResponseModel, 0)
 
-	listOfActions := []string{"ActionDeployment", "ActionIngress", "ActionPod", "ActionJob", "ActionCronJob"}
+	listOfActions := []string{"ActionDeployment", "ActionDaemonSet", "ActionIngress", "ActionPod", "ActionJob", "ActionCronJob"}
 
 	for _, action := range listOfActions {
 
