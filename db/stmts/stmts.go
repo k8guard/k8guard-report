@@ -14,4 +14,9 @@ const (
 		SELECT * FROM %s.alog_namespace_type WHERE namespace = ? AND type = ? LIMIT ?;
 
 	`
+
+	SELECT_CURRENT_TIMEUUID = `
+		SELECT now() FROM system.local;
+
+	`
 )

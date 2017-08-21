@@ -28,7 +28,7 @@ type Context struct {
 func (m VActionResponseModel) GetAllByNameSpace(namespace string) Context {
 	result := make(map[string][]VActionResponseModel, 0)
 
-	listOfActions := []string{"ActionDeployment", "ActionIngress", "ActionPod", "ActionJob", "ActionCronJob"}
+	listOfActions := []string{"ActionDeployment", "ActionDaemonSet", "ActionIngress", "ActionPod", "ActionJob", "ActionCronJob"}
 
 	for _, action := range listOfActions {
 
@@ -68,4 +68,12 @@ func (m VActionResponseModel) GetLastAction() (*VActionResponseModel, error) {
 		return &m, err
 	}
 	return &m, nil
+}
+
+func (m VActionResponseModel) Ping() error {
+	if err := Sess.Query(stmts.SELECT_CURRENT_TIMEUUID).Exec(); err != nil {
+		libs.Log.Error(err)
+		return err
+	}
+	return nil
 }
