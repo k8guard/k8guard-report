@@ -19,5 +19,5 @@ import:
 
 - package: github.com/k8guard/k8guardlibs
   repo: https://github.com/k8guard/k8guardlibs.git
-  version: 81b61988c4cbd72e405af7ab8a86300fb73a59a6
+  version: 720f6cd6c3b33341c3563a35eb213e3d83a89021
   vcs: git
